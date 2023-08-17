@@ -7,6 +7,8 @@ import Register from './Components/Register/Register';
 import CustomerDashboard from './Components/CustomerDashboard/CustomerDashboard';
 import TokenContextProvider from "./TokenContext";
 import EngineerDashboard from './Components/EngineerDashboard';
+import { Table } from 'reactstrap';
+import UpdateComplaints from './Components/UpdateComplaints/UpdateComplaints';
 
 function App() {
   const [token, setToken] = useState("");
@@ -19,6 +21,7 @@ function App() {
         <Route path="/Register" element={<Register/>} />
         <Route path="/login/CustomerDashboard" element={<CustomerDashboard/>} />
         <Route path="/login/EngineerDashboard" element={<EngineerDashboard/>} />
+        <Route path="/login/EngineerDashboard/updateComplaints" element={<UpdateComplaints/>} />
         </Routes>
       </Router>
       </TokenContextProvider>

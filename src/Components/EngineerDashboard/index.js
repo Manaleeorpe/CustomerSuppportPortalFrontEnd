@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import React, { useState , useContext, useEffect} from "react";
 import { TokenContext } from "../../TokenContext";
-
+import Sidebar from "../Sidebar";
+import Header from "../Header";
 
 function  EngineerDashboard() {
   const [data, setData] = useState(null);
@@ -29,16 +30,13 @@ function  EngineerDashboard() {
 
   return (
     <div>
-      <h1>Engineer Dashboard</h1>
-      {data ? (
+      <Header />
+     <div style={{ display: "flex" }}>
+        <Sidebar />
         <div>
-          <p>ID: {data.adminid}</p>
-          <p>Username: {data.name}</p>
-          <p>Email: {data.email}</p>
+
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+      </div>
     </div>
   );
 }
