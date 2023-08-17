@@ -1,9 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './LoginPage.css';
-import  { useState, useContext } from "react";
+import  { useState, useContext , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { TokenContext } from "../../TokenContext";
+import Cookies from 'js-cookie';
 
 
 import {
@@ -28,14 +29,22 @@ function LoginPage() {
   const [failMessage, setFailMessage ] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
+  useEffect(() => {
+    // Get the value of the 'myCookie' cookie
+    const myCookieValue = Cookies.get('CustomerSupport');
+    alert(myCookieValue);
+  }, []);
+
   const handleLogin = async () => {
     let endpoint = "http://localhost:8080/auth/admin/signin"; // Default endpoint
     const loginData = { username, password };
+    
     setUsername(username);
 
     try {
       const response = await fetch(endpoint, {
         method: "POST",
+        credentials: 'include',
         headers: {
           "Content-Type": "application/json",
         },

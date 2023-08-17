@@ -7,7 +7,7 @@ function CustomerDashboard() {
     const { userData } = useContext(TokenContext);
   return (
   <div>
-     <h1>CustomerDashboard</h1>
+     <h1>Customer Dashboard</h1>
      <h2>Welcome, {userData && userData.username}</h2>
   </div>
   );
